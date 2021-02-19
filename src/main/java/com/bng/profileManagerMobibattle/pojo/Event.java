@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.bng.fynder.util.EventType;
+import com.bng.profileManagerMobibattle.util.EventType;
 
 @Document(collection = "event")
 public class Event {

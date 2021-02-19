@@ -6,8 +6,8 @@ import java.util.Random;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.bng.fynder.util.CoreEnums;
-import com.bng.fynder.util.Utility;
+import com.bng.profileManagerMobibattle.util.CoreEnums;
+import com.bng.profileManagerMobibattle.util.Utility;
 
 @Document(collection = "tempuser")
 public class TempUser {
