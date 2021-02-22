@@ -42,5 +42,7 @@ public class URIConstants {
 	public static final String INSERTREFERRERDATA = "/prelogin/insertReferrerData";
 	public static final String ELIGIBLEFORCOUPONS = "/postlogin/isEligibleForCoupons";
 	public static final String HOME = "/postlogin/home";
+	public static final String ENDGAME = "/postlogin/endGame";
+	public static final String LEADERBOARD = "/postlogin/leaderboard";
 	public static final String SANDBOX = "/sandbox";
 }

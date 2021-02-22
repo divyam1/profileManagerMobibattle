@@ -85,6 +85,7 @@ public class MobibattleController {
 	public String createProfile(@RequestBody String request, @RequestHeader Map<String, String> headers) {
 		if (request != null && !request.isEmpty()) {
 			User user = Utility.gson.fromJson(request, User.class);
+			logger.info("user:" + user.getDeviceId() + ", unique:" + user.getUniqueId()+" true:: "+user.getRequestSource().equals(CoreEnums.RequestSource.toString()));
 			if (fynderService.validateUser(user) && (user.getRequestSource() != null
 					&& user.getRequestSource().equals(CoreEnums.RequestSource.toString()))) {
 				String response = Utility.hitPost(baseUrl + ExternalServiceURIConstants.CREATEPROFILEURI, request,
@@ -918,6 +919,48 @@ public class MobibattleController {
 		response.setReason(
 				ResponseEnums.InvalidRequestParameters.toString(headers != null ? headers.get("defaultlanguage") : ""));
 		logger.info("get home  request:" + request + ",response:" + response);
+		return Utility.gson.toJson(response);
+	}
+	@RequestMapping(value = URIConstants.ENDGAME, method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+	public String getEndGame(@RequestBody String request, @RequestHeader Map<String, String> headers) {
+		if (request != null && !request.isEmpty()) {
+			logger.info("get end game request Headers:" + Utility.gson.toJson(headers));
+			
+			User user = Utility.gson.fromJson(request, User.class);
+			if (fynderService.validateUser(user) && (user.getRequestSource() != null
+					&&( user.getRequestSource().equals(CoreEnums.RequestSource.toString())||user.getRequestSource().equals(CoreEnums.RequestSourceWeb.toString())))) {
+				String response = Utility.hitPost(baseUrl + ExternalServiceURIConstants.ENDGAME, request, headers);
+				logger.info("get end game request:" + request + ",response:" + response);
+				return response;
+			}
+		}
+		GeneralResponse response = new GeneralResponse();
+		response.setIsLogout(true);
+		response.setStatus(CoreEnums.ResponseFailure.toString());
+		response.setReason(
+				ResponseEnums.InvalidRequestParameters.toString(headers != null ? headers.get("defaultlanguage") : ""));
+		logger.info("get end game  request:" + request + ",response:" + response);
+		return Utility.gson.toJson(response);
+	}
+	@RequestMapping(value = URIConstants.LEADERBOARD, method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+	public String getLeaderboard(@RequestBody String request, @RequestHeader Map<String, String> headers) {
+		if (request != null && !request.isEmpty()) {
+			logger.info("get leaderboard request Headers:" + Utility.gson.toJson(headers));
+			
+			User user = Utility.gson.fromJson(request, User.class);
+			if (fynderService.validateUser(user) && (user.getRequestSource() != null
+					&&( user.getRequestSource().equals(CoreEnums.RequestSource.toString())||user.getRequestSource().equals(CoreEnums.RequestSourceWeb.toString())))) {
+				String response = Utility.hitPost(baseUrl + ExternalServiceURIConstants.LEADERBOARD, request, headers);
+				logger.info("get leaderboard request:" + request + ",response:" + response);
+				return response;
+			}
+		}
+		GeneralResponse response = new GeneralResponse();
+		response.setIsLogout(true);
+		response.setStatus(CoreEnums.ResponseFailure.toString());
+		response.setReason(
+				ResponseEnums.InvalidRequestParameters.toString(headers != null ? headers.get("defaultlanguage") : ""));
+		logger.info("get leaderboard  request:" + request + ",response:" + response);
 		return Utility.gson.toJson(response);
 	}
 
