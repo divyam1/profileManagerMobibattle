@@ -7,10 +7,10 @@ import org.springframework.data.mongodb.core.query.CriteriaDefinition;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import com.bng.fynder.dao.FynderDAO;
-import com.bng.fynder.pojo.HERegistration;
-import com.bng.fynder.pojo.TempUser;
-import com.bng.fynder.pojo.User;
+import com.bng.profileManagerMobibattle.dao.FynderDAO;
+import com.bng.profileManagerMobibattle.pojo.HERegistration;
+import com.bng.profileManagerMobibattle.pojo.TempUser;
+import com.bng.profileManagerMobibattle.pojo.User;
 
 @Service
 public class FynderDAOImpl implements FynderDAO {

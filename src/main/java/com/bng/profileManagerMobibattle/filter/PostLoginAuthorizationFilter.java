@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.bng.fynder.pojo.UnAuthorizedAccess;
-import com.bng.fynder.util.CoreEnums;
-import com.bng.fynder.util.SecurityConstants;
-import com.bng.fynder.util.Utility;
+import com.bng.profileManagerMobibattle.pojo.UnAuthorizedAccess;
+import com.bng.profileManagerMobibattle.util.CoreEnums;
+import com.bng.profileManagerMobibattle.util.SecurityConstants;
+import com.bng.profileManagerMobibattle.util.Utility;
 
 public class PostLoginAuthorizationFilter implements Filter {
 
