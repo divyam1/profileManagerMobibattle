@@ -85,9 +85,9 @@ public class MobibattleController {
 	public String createProfile(@RequestBody String request, @RequestHeader Map<String, String> headers) {
 		if (request != null && !request.isEmpty()) {
 			User user = Utility.gson.fromJson(request, User.class);
-			logger.info("user:" + user.getDeviceId() + ", unique:" + user.getUniqueId()+" true:: "+user.getRequestSource().equals(CoreEnums.RequestSource.toString()));
+			logger.info("user:" + user.getDeviceId() + ", unique:" + user.getUniqueId()+" true:: "+user.getRequestSource().equals(CoreEnums.RequestSourceWeb.toString()));
 			if (fynderService.validateUser(user) && (user.getRequestSource() != null
-					&& user.getRequestSource().equals(CoreEnums.RequestSource.toString()))) {
+					&& (user.getRequestSource().equals(CoreEnums.RequestSource.toString())||user.getRequestSource().equals(CoreEnums.RequestSourceWeb.toString())))) {
 				String response = Utility.hitPost(baseUrl + ExternalServiceURIConstants.CREATEPROFILEURI, request,
 						headers);
 				logger.info("create profile request:" + request + ", response:" + response);
