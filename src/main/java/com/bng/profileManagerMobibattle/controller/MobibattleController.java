@@ -942,6 +942,29 @@ public class MobibattleController {
 		logger.info("get end game  request:" + request + ",response:" + response);
 		return Utility.gson.toJson(response);
 	}
+	
+	@RequestMapping(value = URIConstants.ENDBATTLE, method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+	public String getEndBattle(@RequestBody String request, @RequestHeader Map<String, String> headers) {
+		if (request != null && !request.isEmpty()) {
+			logger.info("get end battle request Headers:" + Utility.gson.toJson(headers));
+			
+			User user = Utility.gson.fromJson(request, User.class);
+			if (fynderService.validateUser(user) && (user.getRequestSource() != null
+					&&( user.getRequestSource().equals(CoreEnums.RequestSource.toString())||user.getRequestSource().equals(CoreEnums.RequestSourceWeb.toString())))) {
+				String response = Utility.hitPost(baseUrl + ExternalServiceURIConstants.ENDBATTLE, request, headers);
+				logger.info("get end battle request:" + request + ",response:" + response);
+				return response;
+			}
+		}
+		GeneralResponse response = new GeneralResponse();
+		response.setIsLogout(true);
+		response.setStatus(CoreEnums.ResponseFailure.toString());
+		response.setReason(
+				ResponseEnums.InvalidRequestParameters.toString(headers != null ? headers.get("defaultlanguage") : ""));
+		logger.info("get end battle  request:" + request + ",response:" + response);
+		return Utility.gson.toJson(response);
+	}
+	
 	@RequestMapping(value = URIConstants.LEADERBOARD, method = RequestMethod.POST, produces = "application/json;charset=utf-8")
 	public String getLeaderboard(@RequestBody String request, @RequestHeader Map<String, String> headers) {
 		if (request != null && !request.isEmpty()) {
@@ -963,7 +986,29 @@ public class MobibattleController {
 		logger.info("get leaderboard  request:" + request + ",response:" + response);
 		return Utility.gson.toJson(response);
 	}
-
+	
+	@RequestMapping(value = URIConstants.LEADERBOARDBATTLE, method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+	public String getLeaderboardBattle(@RequestBody String request, @RequestHeader Map<String, String> headers) {
+		if (request != null && !request.isEmpty()) {
+			logger.info("get leaderboard battle request Headers:" + Utility.gson.toJson(headers));
+			
+			User user = Utility.gson.fromJson(request, User.class);
+			if (fynderService.validateUser(user) && (user.getRequestSource() != null
+					&&( user.getRequestSource().equals(CoreEnums.RequestSource.toString())||user.getRequestSource().equals(CoreEnums.RequestSourceWeb.toString())))) {
+				String response = Utility.hitPost(baseUrl + ExternalServiceURIConstants.LEADERBOARDBATTLE, request, headers);
+				logger.info("get leaderboard battle request:" + request + ",response:" + response);
+				return response;
+			}
+		}
+		GeneralResponse response = new GeneralResponse();
+		response.setIsLogout(true);
+		response.setStatus(CoreEnums.ResponseFailure.toString());
+		response.setReason(
+				ResponseEnums.InvalidRequestParameters.toString(headers != null ? headers.get("defaultlanguage") : ""));
+		logger.info("get leaderboard battle request:" + request + ",response:" + response);
+		return Utility.gson.toJson(response);
+	}
+	
 	@RequestMapping(value = URIConstants.SANDBOX, method = RequestMethod.GET, produces = "application/json;charset=utf-8")
 	public String sandBox(@RequestParam String code, @RequestParam String state, @RequestParam String correlation_id,
 			@RequestHeader Map<String, String> headers) {

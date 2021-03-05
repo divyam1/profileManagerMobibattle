@@ -41,7 +41,9 @@ public class ExternalServiceURIConstants {
 	public static final String HEARTBEAT = "/heartbeat";
 	public static final String HOME = "/home";
 	public static final String ENDGAME = "/gameEnd";
+	public static final String ENDBATTLE = "/battleEnd";	
 	public static final String LEADERBOARD = "/leaderBoard";
+	public static final String LEADERBOARDBATTLE = "/leaderBoardBattle";
 
 	
 }

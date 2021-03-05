@@ -43,6 +43,9 @@ public class URIConstants {
 	public static final String ELIGIBLEFORCOUPONS = "/postlogin/isEligibleForCoupons";
 	public static final String HOME = "/postlogin/home";
 	public static final String ENDGAME = "/postlogin/endGame";
+	public static final String ENDBATTLE = "/postlogin/endBattle";
 	public static final String LEADERBOARD = "/postlogin/leaderboard";
+	public static final String LEADERBOARDBATTLE = "/postlogin/leaderboardBattle";
 	public static final String SANDBOX = "/sandbox";
+	
 }
