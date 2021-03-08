@@ -46,6 +46,7 @@ public class URIConstants {
 	public static final String ENDBATTLE = "/postlogin/endBattle";
 	public static final String LEADERBOARD = "/postlogin/leaderboard";
 	public static final String LEADERBOARDBATTLE = "/postlogin/leaderboardBattle";
+	public static final String BATTLERESULT= "/postlogin/battleResult";
 	public static final String SANDBOX = "/sandbox";
 	
 }
