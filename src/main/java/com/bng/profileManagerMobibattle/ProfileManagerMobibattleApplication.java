@@ -17,22 +17,22 @@ public class ProfileManagerMobibattleApplication extends SpringBootServletInitia
 		SpringApplication.run(ProfileManagerMobibattleApplication.class, args);
 	}
 
-	@Bean
-	public FilterRegistrationBean<PreLoginAuthorizationFilter> preLoginFilter(){
-	    FilterRegistrationBean<PreLoginAuthorizationFilter> registrationBean 
-	      = new FilterRegistrationBean<>();
-	    registrationBean.setFilter(new PreLoginAuthorizationFilter());
-	    registrationBean.addUrlPatterns("/prelogin/*");
-	    return registrationBean;    
-	}
-	
-	@Bean
-	public FilterRegistrationBean<PostLoginAuthorizationFilter> postLoginFilter(){
-	    FilterRegistrationBean<PostLoginAuthorizationFilter> registrationBean 
-	      = new FilterRegistrationBean<>();
-	    registrationBean.setFilter(new PostLoginAuthorizationFilter());
-	    registrationBean.addUrlPatterns("/postlogin/*");
-	    return registrationBean;    
-	}
+//	@Bean
+//	public FilterRegistrationBean<PreLoginAuthorizationFilter> preLoginFilter(){
+//	    FilterRegistrationBean<PreLoginAuthorizationFilter> registrationBean 
+//	      = new FilterRegistrationBean<>();
+//	    registrationBean.setFilter(new PreLoginAuthorizationFilter());
+//	    registrationBean.addUrlPatterns("/prelogin/*");
+//	    return registrationBean;    
+//	}
+//	
+//	@Bean
+//	public FilterRegistrationBean<PostLoginAuthorizationFilter> postLoginFilter(){
+//	    FilterRegistrationBean<PostLoginAuthorizationFilter> registrationBean 
+//	      = new FilterRegistrationBean<>();
+//	    registrationBean.setFilter(new PostLoginAuthorizationFilter());
+//	    registrationBean.addUrlPatterns("/postlogin/*");
+//	    return registrationBean;    
+//	}
 
 }

@@ -1017,7 +1017,7 @@ public class MobibattleController {
 			User user = Utility.gson.fromJson(request, User.class);
 			if (fynderService.validateUser(user) && (user.getRequestSource() != null
 					&&( user.getRequestSource().equals(CoreEnums.RequestSource.toString())||user.getRequestSource().equals(CoreEnums.RequestSourceWeb.toString())))) {
-				String response = Utility.hitPost(baseUrl + ExternalServiceURIConstants.LEADERBOARDBATTLE, request, headers);
+				String response = Utility.hitPost(baseUrl + ExternalServiceURIConstants.BATTLERESULT, request, headers);
 				logger.info("get result battle request:" + request + ",response:" + response);
 				return response;
 			}
