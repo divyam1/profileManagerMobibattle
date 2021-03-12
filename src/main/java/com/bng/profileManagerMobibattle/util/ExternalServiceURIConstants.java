@@ -45,6 +45,7 @@ public class ExternalServiceURIConstants {
 	public static final String LEADERBOARD = "/leaderBoard";
 	public static final String LEADERBOARDBATTLE = "/leaderBoardBattle";
 	public static final String BATTLERESULT = "/battleResult";
+	public static final String MYBATTLE = "/myBattle";
 
 	
 }
